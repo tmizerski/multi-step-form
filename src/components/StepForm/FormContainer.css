@@ -1,0 +1,23 @@
+.form-container {
+    width: 70%;
+    margin: 4% 0;
+    background: var(--white);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.side-bar {
+    min-width: 376px;
+    height: 100%;
+    background-image: url(../../images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/*.step-container {*/
+
+/*}*/
