@@ -30,6 +30,10 @@
     padding: 2rem 2rem;
 }
 
+.form-side-wrapper {
+    margin-right: 2.5rem;
+}
+
 .form-side-title {
     margin: 60px 0 5px 0;
     font-size: 36px;

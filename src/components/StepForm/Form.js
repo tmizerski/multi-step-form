@@ -9,21 +9,22 @@ function Form(props) {
                 <div className={"form-input-container"}>
                     <label className={"form-label"} htmlFor="name">
                         Name
-                    </label>
+                    </label><span></span>
                     <input className={"form-input"} id={"name"} type="text" placeholder={"e.g John"}/>
                 </div>
                 <div className={"form-input-container"}>
                     <label className={"form-label"} htmlFor="email">
                         Email address
-                    </label>
+                    </label><span></span>
                     <input className={"form-input"} id="email" type="text" placeholder={"e.g. john@gmail.com"}/>
                 </div>
                 <div className={"form-input-container"}>
                     <label className={"form-label"} htmlFor="phone">
                         Phone number
-                    </label>
+                    </label><span></span>
                     <input className={"form-input"} id="phone" type="text" placeholder={"e.g 48 555111222"}/>
                 </div>
+                <button>NEXT</button>
             </form>
         </div>
     );
