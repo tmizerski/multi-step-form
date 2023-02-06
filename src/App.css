@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
 :root {
   --marine-blue: hsl(213, 96%, 18%);
   --purplish-blue: hsl(243, 100%, 62%);
@@ -9,6 +11,7 @@
   --magnolia: hsl(217, 100%, 97%);
   --alabaster: hsl(231,100%,97%);
   --white: hsl(0, 0%, 100%);
+  --epilog: 'Epilogue', sans-serif;
 }
 
 * {
@@ -27,6 +30,7 @@ html, body, #root {
   min-height: 100%;
   background: var(--magnolia);
   display: flex;
-  justify-content: center;
+  align-items: center;
+  font-family: var(--epilog);
 }
 
