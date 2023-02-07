@@ -1,0 +1,87 @@
+.radio-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    min-height: 35%;
+}
+
+.plan-card input {
+    visibility: hidden;
+}
+
+.plan-card {
+    height: 100%;
+    width: 30%;
+}
+
+.plan-card-label {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem;
+
+    border: 1px solid var(--cool-gray);
+    border-radius: 20px;
+}
+
+.plan-card-label img {
+    height: 30%;
+}
+
+.card-promotion {
+    color: var(--marine-blue);
+}
+
+.switch-section {
+    margin: 3rem 0;
+
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--light-gray);
+    border-radius: 10px;
+}
+
+.switch-section span {
+    line-height: 60px;
+    position:relative;
+}
+
+#monthOrYear {
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.switch {
+    position: relative;
+    margin: 0 20px 0 20px;
+    display: block;
+    width: 56px;
+    height: 32px;
+    background: var(--marine-blue);
+    border-radius: 30px;
+    z-index: 10;
+}
+
+#switchCircle {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: var(--alabaster);
+    border-radius: 50%;
+    transition: .4s linear;
+}
+
+#monthOrYear:checked + #switchCircle {
+    transform: translateX(24px);
+}
+

@@ -1,14 +1,21 @@
 import React, {useState} from 'react';
 import "./FormContainer.css";
-import Form from "./Form";
+import StepOne from "./StepOne";
 import Sidebar from "./sidebar";
+import StepTwo from "./StepTwo";
 
 function FormContainer(props) {
+    //first step
     const [step, setStep] = useState(1);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [val, setVal] = useState(false);
+
+    //second step
+    const [period, setPeriod] = useState("monthly");
+    const [checked, setChecked] = useState(false);
+
 
     const steps = [
         {
@@ -28,6 +35,10 @@ function FormContainer(props) {
             subtitle: "step 4",
             title: "summary"
         }]
+
+    const handleCheckPeriod = () => {
+        setChecked(!checked);
+    }
 
     const getName = (value) => {
         setName(value)
@@ -52,17 +63,9 @@ function FormContainer(props) {
                 <Sidebar stepsList={steps} currentStep={step}/>
             </div>
             <div className={"step-container"}>
-                <Form
-                    getName={getName}
-                    getPhone={getPhone}
-                    getEmail={getEmail}
-                    currentStep={step}
-                    inputValidation={inputValidation}
-                    name={name}
-                    phone={phone}
-                    email={email}
-                    inputValidation={inputValidation}
-                    val={val}
+                <StepTwo
+                    handleCheckPeriod={handleCheckPeriod}
+                    checked={checked}
                 />
             </div>
         </div>

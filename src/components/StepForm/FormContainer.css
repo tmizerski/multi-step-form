@@ -1,14 +1,19 @@
 .form-container {
-    width: max(70%, 850px);
+    width: max(80%, 1000px);
     height: max(89vh, 760px);
     margin: 0 auto;
     background: var(--white);
     border-radius: 20px;
     display: flex;
     flex-direction: row;
-    color: var(--marine-blue)
-    /*justify-content: center;*/
+    color: var(--marine-blue);
+    justify-content: center;
     /*align-items: center;*/
+}
+
+.step-container {
+    width: 100%;
+    padding-right: 1.5rem;
 }
 
 .side-bar-container {
@@ -31,8 +36,10 @@
 }
 
 .form-side-wrapper {
-    height: 100%;
+    height: calc(100% - 130px);
+    width: 100%;
     margin-right: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .form-side-title {
@@ -47,6 +54,7 @@
 }
 
 .form-side-form {
+    height: 80%;
     display: flex;
     flex-direction: column;
 }
@@ -59,7 +67,7 @@
 }
 
 .form-label {
-    margin: .5rem ;
+    margin: .5rem 0 ;
     font-weight: bold;
 }
 
@@ -129,6 +137,7 @@
     height: 3rem;
     width: 150px;
     margin-top: 10rem;
+    margin-right: 10px;
     align-self: flex-end;
 
     background: var(--marine-blue);
@@ -139,7 +148,6 @@
 }
 
 .validation-msg {
-    /*margin-left: auto;*/
     margin: .5rem 0;
     font-weight: bold;
     color:var(--strawberry-red)
@@ -153,5 +161,20 @@
 
 .form-input--invalid {
     border: 1px solid var(--strawberry-red);
+}
+
+.span-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    color: var(--marine-blue);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-price {
+    color: var(--cool-gray)
 }
 

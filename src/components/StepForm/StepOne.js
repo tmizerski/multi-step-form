@@ -1,13 +1,16 @@
 import React, {useRef, useState} from 'react';
 
-function Form({
-                  getName,
-                  getEmail,
-                  getPhone,
-                  email,
-                  name,
-                  phone,
-                  val, inputValidation}) {
+function StepOne(
+    {
+        getName,
+        getEmail,
+        getPhone,
+        email,
+        name,
+        phone,
+        val,
+        inputValidation
+    }) {
 
     const inputNameHandler = (e) => {
         getName(e.target.value)
@@ -21,7 +24,6 @@ function Form({
 
     return (
         <div className={"form-side-wrapper"}>
-            {val}
             <h2 className={"form-side-title"}>Personal info</h2>
             <span className={"form-side-subtitle"}>Please provide your name, email address, and phone number.</span>
             <form className={"form-side-form"}>
@@ -37,6 +39,7 @@ function Form({
                     <input
                         className={(val && !name) ? "form-input form-input--invalid" : "form-input"}
                         id={"name"}
+                        value={name}
                         type="text"
                         placeholder={"e.g John"}
                         onChange={(e)=>inputNameHandler(e)}
@@ -54,6 +57,7 @@ function Form({
                     <input
                         className={(val && !email) ? "form-input form-input--invalid" : "form-input"}
                         id="email"
+                        value={email}
                         type="text"
                         placeholder={"e.g. john@gmail.com"}
                         onChange={(e)=>{inputEmailHandler(e)}}
@@ -70,6 +74,7 @@ function Form({
                     </div>
                     <input
                         className={(val && !phone) ? "form-input form-input--invalid" :"form-input"}
+                        value={phone}
                         id="phone"
                         type="text"
                         placeholder={"e.g 48 555111222"}
@@ -87,4 +92,4 @@ function Form({
     );
 }
 
-export default Form;
+export default StepOne;
