@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./FormContainer.css";
 import Form from "./Form";
+import Sidebar from "./sidebar";
 
 function FormContainer(props) {
+    const [step, setStep] = useState(1);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [val, setVal] = useState(false);
 
     const steps = [
         {
@@ -22,24 +28,42 @@ function FormContainer(props) {
             subtitle: "step 4",
             title: "summary"
         }]
+
+    const getName = (value) => {
+        setName(value)
+    }
+
+    const getPhone = (value) => {
+        setPhone(value)
+    }
+
+    const getEmail = (value) => {
+        setEmail(value)
+    }
+
+    const inputValidation = () => {
+        setVal(true)
+        setStep(step+1)
+    }
+
     return (
         <div className={"form-container"}>
             <div className={"side-bar-container"}>
-                <div className={"side-bar"}>
-                    {steps && steps.map((step, k) => {
-                        return <div className={"step-number-container"}>
-                            <div className={"step-number"}>{step.number}</div>
-                            <div className={"title-container"}>
-                                <div className={"step-subtitle"}>{step.subtitle.toUpperCase()}</div>
-                                <div className={"step-title"}>{step.title.toUpperCase()}</div>
-                            </div>
-                        </div>
-                    })
-                    }
-                </div>
+                <Sidebar stepsList={steps} currentStep={step}/>
             </div>
             <div className={"step-container"}>
-                <Form/>
+                <Form
+                    getName={getName}
+                    getPhone={getPhone}
+                    getEmail={getEmail}
+                    currentStep={step}
+                    inputValidation={inputValidation}
+                    name={name}
+                    phone={phone}
+                    email={email}
+                    inputValidation={inputValidation}
+                    val={val}
+                />
             </div>
         </div>
     );

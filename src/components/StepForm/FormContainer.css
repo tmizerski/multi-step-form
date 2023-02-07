@@ -31,6 +31,7 @@
 }
 
 .form-side-wrapper {
+    height: 100%;
     margin-right: 2.5rem;
 }
 
@@ -122,5 +123,35 @@
 .step-title {
     font-size: 1.5rem;
     font-weight: 400;
+}
+
+.form-button {
+    height: 3rem;
+    width: 150px;
+    margin-top: 10rem;
+    align-self: flex-end;
+
+    background: var(--marine-blue);
+    border-radius: 10px;
+
+    color: var(--alabaster);
+    font-size: 1.5rem;
+}
+
+.validation-msg {
+    /*margin-left: auto;*/
+    margin: .5rem 0;
+    font-weight: bold;
+    color:var(--strawberry-red)
+}
+
+.label-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-input--invalid {
+    border: 1px solid var(--strawberry-red);
 }
 
