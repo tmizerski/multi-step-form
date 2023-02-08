@@ -4,7 +4,7 @@ function Sidebar({stepsList, currentStep}) {
     return (
         <div className={"side-bar"}>
             {stepsList && stepsList.map((step, k) => {
-                return <div className={"step-number-container"}>
+                return <div key={k} className={"step-number-container"}>
                     <div className={currentStep===step.number ? `step-number--active` : `step-number`}>{step.number}</div>
                     <div className={"title-container"}>
                         <div className={"step-subtitle"}>{step.subtitle.toUpperCase()}</div>

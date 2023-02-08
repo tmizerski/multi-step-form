@@ -6,7 +6,9 @@
 }
 
 .plan-card input {
-    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .plan-card {
@@ -34,6 +36,16 @@
     color: var(--marine-blue);
 }
 
+.card-title {
+    color: var(--marine-blue);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-price {
+    color: var(--cool-gray)
+}
+
 .switch-section {
     margin: 3rem 0;
 
@@ -43,13 +55,14 @@
     justify-content: center;
     align-items: center;
 
-    background: var(--light-gray);
+    background: var(--magnolia);
     border-radius: 10px;
 }
 
-.switch-section span {
+.switch-section label span {
     line-height: 60px;
     position:relative;
+    cursor: pointer;
 }
 
 #monthOrYear {
@@ -85,3 +98,11 @@
     transform: translateX(24px);
 }
 
+.plan-card-label--active {
+    border: 1px solid var(--purplish-blue);
+    background: var(--magnolia);
+}
+
+.plan-card-label:hover {
+    border: 1px solid var(--purplish-blue);
+}

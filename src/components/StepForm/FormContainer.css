@@ -13,7 +13,7 @@
 
 .step-container {
     width: 100%;
-    padding-right: 1.5rem;
+    padding-right: 2rem;
 }
 
 .side-bar-container {
@@ -137,7 +137,6 @@
     height: 3rem;
     width: 150px;
     margin-top: 10rem;
-    margin-right: 10px;
     align-self: flex-end;
 
     background: var(--marine-blue);
@@ -145,6 +144,8 @@
 
     color: var(--alabaster);
     font-size: 1.5rem;
+
+    cursor: pointer;
 }
 
 .validation-msg {
@@ -168,13 +169,20 @@
     flex-direction: column;
 }
 
-.card-title {
-    color: var(--marine-blue);
-    font-size: 20px;
-    font-weight: bold;
+.button-container {
+    display: flex;
+    justify-content: space-between;
 }
 
-.card-price {
-    color: var(--cool-gray)
+.form-button-back {
+    color: var(--cool-gray);
+    text-decoration: underline;
+    border: none;
+    background: var(--white);
 }
+
+.form-button-back:hover {
+    color: var(--marine-blue);
+}
+
 

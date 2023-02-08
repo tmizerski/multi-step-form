@@ -9,7 +9,8 @@ function StepOne(
         name,
         phone,
         val,
-        inputValidation
+        inputValidation,
+        changeStep
     }) {
 
     const inputNameHandler = (e) => {
@@ -84,7 +85,9 @@ function StepOne(
                 <button className={"form-button"} onClick={(e)=> {
                     e.preventDefault()
                     if(!name || !email || !phone) {
-                        inputValidation()
+                        return inputValidation()
+                    } else {
+                        return changeStep("next")
                     }
                 }}>Next Step</button>
             </form>
