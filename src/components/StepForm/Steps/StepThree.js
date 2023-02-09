@@ -25,9 +25,11 @@ export const addOns = [
 
 
 function StepThree({
-                    changeStep
+                    changeStep,
+                    period,
+                    activeCheckbox,
+                    handleCheckboxChange
                  }) {
-const [check, setCheck] = useState(false);
 
 
     return (
@@ -37,32 +39,37 @@ const [check, setCheck] = useState(false);
             <form className={"form-side-form"}>
                 <div className={"checkbox-section"}>
                     {addOns && addOns.map((add, k) => {
-                        return <label className={"checkbox-label"} htmlFor={add.title}>
+                        return <label key={k} className={"checkbox-label"} htmlFor={add.title}>
                             <div className={"checkbox-container"}>
-
-                            <span className={"check"}>
+                            <span className={activeCheckbox.includes(k) ? "check check-active" : "check"}>
                                 <input className={"checkbox-input"}
-                                       name={add.title}
+                                       id={add.title}
                                        type={"checkbox"}
-                                       checked={check}/>
+                                       checked={activeCheckbox.includes(k) ? true : false}
+                                       value={period === "month" ? add.priceMonth : add.priceYear}
+                                       onClick={(e) => handleCheckboxChange(e.target.value, k)}
+                                />
                             </span>
                                 <div className={"check-content"}>
-                                    <span className={"card-title"}>{add.title}</span>
-                                    <span className={"card-subtitle"}>{add.subtitle}</span>
+                                    <span className={"card-title checkbox-title"}>{add.title}</span>
+                                    <span className={"check-subtitle"}>{add.subtitle}</span>
                                 </div>
-                                <div>{add.price}</div>
+                                <div
+                                    className={"check-price"}>{period === "month" ? add.priceMonth : add.priceYear}</div>
                             </div>
+
                         </label>
                     })
                     }
                 </div>
                 <div className={"button-container"}>
                     <button className={"form-button-back form-button"}
-                            onClick={(e)=> {
+                            onClick={(e) => {
                                 e.preventDefault();
                                 changeStep("back");
                             }}
-                    >Go Back</button>
+                    >Go Back
+                    </button>
                     <button className={"form-button"} onClick={(e) => {
                         e.preventDefault();
                         changeStep("next");

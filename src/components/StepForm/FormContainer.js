@@ -38,8 +38,22 @@ function FormContainer(props) {
     const [radioValue, setRadioValue] = useState("");
     const [activeLabel, setActiveLabel] = useState();
 
-    const handleChangeActiveLabel = (index) => {
+    //step three
+    const [checkboxValue, setCheckboxValue] = useState([]);
+    const [activeCheckbox, setActiveCheckbox] = useState([]);
 
+    const handleCheckboxChange = (value, index) => {
+        if(activeCheckbox.includes(index)) {
+            setCheckboxValue(checkboxValue.filter(element => element !==value));
+            setActiveCheckbox(activeCheckbox.filter(element => element !== index));
+        } else {
+            setCheckboxValue([...checkboxValue, value]);
+            setActiveCheckbox([... activeCheckbox, index]);
+        }
+    }
+
+
+    const handleChangeActiveLabel = (index) => {
         setActiveLabel(index);
     }
 
@@ -105,6 +119,13 @@ function FormContainer(props) {
                 changeStep={handleChangeStep}
             />
             break;
+            case 3: return <StepThree
+                changeStep={handleChangeStep}
+                period={period}
+                handleCheckboxChange={handleCheckboxChange}
+                activeCheckbox={activeCheckbox}
+            />
+            break;
 
             default: return <StepOne />
         }
@@ -113,15 +134,13 @@ function FormContainer(props) {
 
     return (
         <div className={"form-container"}>
-            {step}
+            {activeCheckbox}
             <div className={"side-bar-container"}>
                 <Sidebar stepsList={steps} currentStep={step}/>
             </div>
             <div className={"step-container"}>
-                {/*{renderStep(step)}*/}
-                <StepThree
-                changeStep={handleChangeStep}
-                />
+                {renderStep(step)}
+
             </div>
         </div>
     );
