@@ -20,17 +20,39 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
-  height: 100%;
-  width: 100%;
+html {
+  background: var(--magnolia);
+}
+
+body, #root {
+  height: 100vh;
 }
 
 .app {
   min-width: 100%;
   min-height: 100%;
-  background: var(--magnolia);
   display: flex;
   align-items: center;
   font-family: var(--epilog);
 }
 
+@media (max-width: 600px) {
+  html {
+    border: 1px solid black;
+    font-size: 14px;
+  }
+
+  .app {
+    position: relative;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 300px) {
+  html {
+    font-size: 10px;
+  }
+}

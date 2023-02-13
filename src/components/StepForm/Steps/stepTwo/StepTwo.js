@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import arcade from '../../../images/icon-arcade.svg';
-import advanced from '../../../images/icon-advanced.svg';
-import pro from '../../../images/icon-pro.svg';
+import React from 'react';
+import arcade from '../../../../images/icon-arcade.svg';
+import advanced from '../../../../images/icon-advanced.svg';
+import pro from '../../../../images/icon-pro.svg';
 
 import "./StepTwo.css";
 
@@ -29,7 +29,8 @@ export const planCards = [
     }
 ]
 
-function StepTwo({checked,
+function StepTwo({
+                     checked,
                      handleCheckPeriod,
                      handleRadioValue,
                      activeLabel,
@@ -37,9 +38,10 @@ function StepTwo({checked,
                      changeStep
 }) {
 
-    const handleOnRadioChange = (e) => {
+    const handleOnRadioChange = (e, price, title) => {
         const index = parseInt(e.target.dataset.index);
-        handleChangeActiveLabel(index)
+        handleChangeActiveLabel(index);
+        handleRadioValue(price, title);
     }
 
     return (
@@ -57,8 +59,7 @@ function StepTwo({checked,
                                 id={card.title}
                                 name={"rad"}
                                 type="radio"
-                                value={checked ? card.priceYear : card.priceMonth}
-                                onChange={(e)=>(handleRadioValue(e.target.value), handleOnRadioChange(e))}
+                                onChange={(e)=>(handleOnRadioChange(e, checked ? card.priceYear : card.priceMonth, card.title))}
                             />
                             <div className={"span-section"}>
 

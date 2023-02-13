@@ -43,7 +43,7 @@ function StepOne(
                         value={name}
                         type="text"
                         placeholder={"e.g John"}
-                        onChange={(e)=>inputNameHandler(e)}
+                        onChange={(e) => inputNameHandler(e)}
                     />
                 </div>
                 <div className={"form-input-container"}>
@@ -61,7 +61,9 @@ function StepOne(
                         value={email}
                         type="text"
                         placeholder={"e.g. john@gmail.com"}
-                        onChange={(e)=>{inputEmailHandler(e)}}
+                        onChange={(e) => {
+                            inputEmailHandler(e)
+                        }}
                     />
                 </div>
                 <div className={"form-input-container"}>
@@ -74,22 +76,27 @@ function StepOne(
                         }
                     </div>
                     <input
-                        className={(val && !phone) ? "form-input form-input--invalid" :"form-input"}
+                        className={(val && !phone) ? "form-input form-input--invalid" : "form-input"}
                         value={phone}
                         id="phone"
                         type="text"
                         placeholder={"e.g 48 555111222"}
-                        onChange={(e)=>{inputPhoneHandler(e)}}
+                        onChange={(e) => {
+                            inputPhoneHandler(e)
+                        }}
                     />
                 </div>
-                <button className={"form-button"} onClick={(e)=> {
-                    e.preventDefault()
-                    if(!name || !email || !phone) {
-                        return inputValidation()
-                    } else {
-                        return changeStep("next")
-                    }
-                }}>Next Step</button>
+                <div className={"button-container"}>
+                    <button className={"form-button first-step-button"} onClick={(e) => {
+                        e.preventDefault()
+                        if (!name || !email || !phone) {
+                            return inputValidation()
+                        } else {
+                            return changeStep("next")
+                        }
+                    }}>Next Step
+                    </button>
+                </div>
             </form>
         </div>
     );

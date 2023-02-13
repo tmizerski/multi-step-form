@@ -1,0 +1,76 @@
+.content-container {
+    background: var(--magnolia);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.plan-content {
+    padding: 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.plan-title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    font-weight: 700;
+}
+
+.plan-price {
+    font-weight: 700;
+}
+
+.change-button {
+    width:60px;
+    height: 14px;
+
+    border: none;
+    background: none;
+
+    font-size: 14px;
+    color: var(--cool-gray);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.change-button:hover {
+    color: var(--purplish-blue);
+    text-decoration: underline;
+
+}
+
+.addon-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem;
+    color: var(--cool-gray)
+}
+
+.addon-price {
+    color: var(--marine-blue)
+}
+
+.price-summary {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1.5rem;
+}
+
+.price-summary-title {
+    color: var(--cool-gray)
+}
+
+.price-summary-totalprice {
+    font-weight: 700;
+    color: var(--purplish-blue);
+}
+
+.form-button-confirm {
+    background: var(--purplish-blue);
+}

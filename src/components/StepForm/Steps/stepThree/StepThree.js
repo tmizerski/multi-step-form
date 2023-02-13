@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import "./StepThree.css";
 
@@ -40,14 +40,14 @@ function StepThree({
                 <div className={"checkbox-section"}>
                     {addOns && addOns.map((add, k) => {
                         return <label key={k} className={"checkbox-label"} htmlFor={add.title}>
-                            <div className={"checkbox-container"}>
+                            <div className={activeCheckbox.includes(k) ? "checkbox-container checkbox-container-active" : "checkbox-container"}>
                             <span className={activeCheckbox.includes(k) ? "check check-active" : "check"}>
                                 <input className={"checkbox-input"}
                                        id={add.title}
                                        type={"checkbox"}
                                        checked={activeCheckbox.includes(k) ? true : false}
-                                       value={period === "month" ? add.priceMonth : add.priceYear}
-                                       onClick={(e) => handleCheckboxChange(e.target.value, k)}
+                                       value={period === "Month" ? add.priceMonth : add.priceYear}
+                                       onChange={(e) => handleCheckboxChange(e.target.value, add.title, k)}
                                 />
                             </span>
                                 <div className={"check-content"}>
@@ -55,7 +55,7 @@ function StepThree({
                                     <span className={"check-subtitle"}>{add.subtitle}</span>
                                 </div>
                                 <div
-                                    className={"check-price"}>{period === "month" ? add.priceMonth : add.priceYear}</div>
+                                    className={"check-price"}>{period === "Month" ? add.priceMonth : add.priceYear}</div>
                             </div>
 
                         </label>

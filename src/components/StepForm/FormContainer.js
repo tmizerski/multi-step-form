@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import "./FormContainer.css";
-import StepOne from "./Steps/StepOne";
+import StepOne from "./Steps/stepOne/StepOne";
 import Sidebar from "./sidebar";
-import StepTwo from "./Steps/StepTwo";
-import StepThree from "./Steps/StepThree";
+import StepTwo from "./Steps/stepTwo/StepTwo";
+import StepThree from "./Steps/stepThree/StepThree";
+import StepFour from "./Steps/stepFour/StepFour";
+import {planCards} from "./Steps/stepTwo/StepTwo";
+import StepFive from "./Steps/stepFive/StepFive";
 
 export const steps = [
     {
@@ -33,21 +36,29 @@ function FormContainer(props) {
     const [val, setVal] = useState(false);
 
     //second step
-    const [period, setPeriod] = useState("month");
+    const [period, setPeriod] = useState("Month");
     const [checked, setChecked] = useState(false);
-    const [radioValue, setRadioValue] = useState("");
+    const [planPrice, setPlanPrice] = useState();
+    const [planTitle, setPlanTitle] = useState();
     const [activeLabel, setActiveLabel] = useState();
 
     //step three
     const [checkboxValue, setCheckboxValue] = useState([]);
     const [activeCheckbox, setActiveCheckbox] = useState([]);
 
-    const handleCheckboxChange = (value, index) => {
+    const handleCheckboxChange = (value, title, index) => {
         if(activeCheckbox.includes(index)) {
-            setCheckboxValue(checkboxValue.filter(element => element !==value));
-            setActiveCheckbox(activeCheckbox.filter(element => element !== index));
+            console.log(index)
+            const addons = checkboxValue.filter(element =>  element.id !== index);
+            console.log(addons)
+            const indexArray = activeCheckbox.filter(element => element !== index);
+            console.log(indexArray)
+            setCheckboxValue(addons);
+            setActiveCheckbox(indexArray);
         } else {
-            setCheckboxValue([...checkboxValue, value]);
+            const addons = checkboxValue;
+            addons.push({price:value, title, id: index})
+            setCheckboxValue(addons);
             setActiveCheckbox([... activeCheckbox, index]);
         }
     }
@@ -57,16 +68,17 @@ function FormContainer(props) {
         setActiveLabel(index);
     }
 
-    const handleRadioValue = (value) => {
-        setRadioValue(value)
+    const handleRadioValue = (price, title) => {
+        setPlanPrice(price);
+        setPlanTitle(title);
     }
 
     const handleCheckPeriod = () => {
         setChecked(!checked);
         if(checked) {
-            setPeriod("month")
+            setPeriod("Month")
         } else {
-            setPeriod("year")
+            setPeriod("Year")
         }
     }
 
@@ -82,12 +94,15 @@ function FormContainer(props) {
         setEmail(value)
     }
 
-    const handleChangeStep = (direction) => {
-        if(direction === "next") {
+    const handleChangeStep = (direction, exact) => {
+        if(direction === "next" && step <= 5) {
             setStep(step+1)
         }
         if(direction === "back" && step > 0) {
             setStep(step-1)
+        }
+        if(exact) {
+            setStep(exact)
         }
     }
 
@@ -126,21 +141,29 @@ function FormContainer(props) {
                 activeCheckbox={activeCheckbox}
             />
             break;
+            case 4: return <StepFour
+                changeStep={handleChangeStep}
+                price={planPrice}
+                title={planTitle}
+                period={period}
+                addons={checkboxValue}
+            />;
+            break;
+            case 5: return <StepFive />;
+            break;
 
-            default: return <StepOne />
+            default: return <StepFive />
         }
     }
 
 
     return (
         <div className={"form-container"}>
-            {activeCheckbox}
             <div className={"side-bar-container"}>
                 <Sidebar stepsList={steps} currentStep={step}/>
             </div>
             <div className={"step-container"}>
                 {renderStep(step)}
-
             </div>
         </div>
     );

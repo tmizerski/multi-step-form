@@ -38,7 +38,7 @@
 
 .card-title {
     color: var(--marine-blue);
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -105,4 +105,42 @@
 
 .plan-card-label:hover {
     border: 1px solid var(--purplish-blue);
+}
+
+@media (max-width: 600px) {
+    .radio-section {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .plan-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .plan-card-label {
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1rem;
+        border-radius: 10px;
+        border: 1px solid var(--light-gray)
+    }
+
+    .plan-card-label img {
+        height: 100%;
+    }
+
+    .span-section {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
 }
